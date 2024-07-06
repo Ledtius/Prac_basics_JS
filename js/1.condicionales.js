@@ -8,33 +8,44 @@ if (nombre) {
 }
 
 function solicitarNombre() {
-  let nombre = prompt("Digite el nombre del estudiante").trim();
+  let nombre = prompt("Digite el nombre del estudiante");
 
-  if (!nombre) {
-    console.log("Caracter invalido - vacio o nulo");
-  } else if (!isNaN(nombre)) {
-    console.log("Caracter invalido - números no permitidos: " + nombre);
-  } else if (nombre.length > 50) {
-    console.log("Valor invalido - nombre demasiado largo");
+  if (nombre === null) {
+    alert("Valor de nombre nulo");
   } else {
-    return nombre;
+    nombre = nombre.trim();
+    if (!nombre) {
+      console.log("Caracter invalido - vacio o nulo");
+    } else if (!isNaN(nombre)) {
+      console.log("Caracter invalido - números no permitidos: " + nombre);
+    } else if (nombre.length > 50) {
+      console.log("Valor invalido - nombre demasiado largo");
+    } else {
+      return nombre;
+    }
+    return null;
   }
-  return null;
 }
 
 function solicitarNota() {
-  let nota = prompt("Digite la nota del estudiante").trim();
+  let nota = prompt("Digite la nota del estudiante");
 
-  if (!nota) {
-    console.log("Caracter invalido - vacio o nulo");
-  } else if (isNaN(nota)) {
-    console.log("Caracter invalido - Solo se permite numeros");
+  if (nota === null) {
+    alert("Valor de nota nulo");
   } else {
-    nota = Number(nota);
-    if (nota >= 0 && nota <= 100) {
-      return nota;
+    nota = nota.trim();
+
+    if (!nota) {
+      console.log("Caracter invalido - vacio o nulo");
+    } else if (isNaN(nota)) {
+      console.log("Caracter invalido - Solo se permite numeros");
     } else {
-      console.log("Valor invalido - La nota debe estar entre 0 y 100");
+      nota = Number(nota);
+      if (nota >= 0 && nota <= 100) {
+        return nota;
+      } else {
+        console.log("Valor invalido - La nota debe estar entre 0 y 100");
+      }
     }
   }
   return null;

@@ -1,32 +1,43 @@
 function solicitarEdad() {
-  let edad = prompt("Digite la edad del usuario").trim();
-  if (!edad) {
-    alert("Valor de edad vacío o nulo");
-  } else if (isNaN(edad)) {
-    alert("Carácter inválido - solo se permiten números");
+  let edad = prompt("Digite la edad del usuario");
+  if (edad === null) {
+    alert("Operacion cancelada");
   } else {
-    edad = Number(edad);
-    if (edad < 5 || edad > 120) {
-      alert("Edad inválida");
+    edad = edad.trim();
+    if (!edad) {
+      alert("Valor de edad vacío o nulo");
+    } else if (isNaN(edad)) {
+      alert("Carácter inválido - solo se permiten números");
     } else {
-      return edad;
+      edad = Number(edad);
+      if (edad < 5 || edad > 120) {
+        alert("Edad inválida");
+      } else {
+        return edad;
+      }
     }
+    return null;
   }
-  return null;
 }
 
 function solicitarPais() {
-  let pais = prompt("Digite el país del usuario").trim();
-  if (!pais) {
-    alert("Valor de país vacío o nulo");
-  } else if (!isNaN(pais)) {
-    alert("Carácter inválido - solo se permiten letras");
-  } else if (pais.length < 2) {
-    alert("Nombre del país demasiado corto");
+  let pais = prompt("Digite el país del usuario");
+  if (pais === null) {
+    alert("Operacion cancelada");
   } else {
-    return pais;
+    pais = pais.trim();
+
+    if (!pais) {
+      alert("Valor de país vacío o nulo");
+    } else if (!isNaN(pais)) {
+      alert("Carácter inválido - solo se permiten letras");
+    } else if (pais.length < 2) {
+      alert("Nombre del país demasiado corto");
+    } else {
+      return pais;
+    }
+    return null;
   }
-  return null;
 }
 
 function recomendarPeliculas(edad, pais) {
