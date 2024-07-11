@@ -1,37 +1,63 @@
+/* Ejercicio 2: Cálculo de edad
+Crea una función que solicite al usuario ingresar su fecha de nacimiento en formato "dd/mm/yyyy" y calcule su edad. Asegúrate de validar que el formato de la fecha sea correcto y que la fecha ingresada sea válida. */
+
 function fechaNacimiento() {
-  let fecha = prompt("Escriba su fecha de nacimeinto");
+  let fecha = prompt("Digite su fecha de nacimiento");
 
-  if (isNaN(fecha.substring(0, 1))) {
-    alert("No es un numero");
-    alert(fecha.substring(0, 1));
-// 12345678910
-// dd/mm/yyyy
-  } else {
-    alert("Es un numero");
-    if (fecha.substring(0,2) === "/" && fecha.substring(5,6) === "/") {
-        alert("Bien " + fecha);
-    }
-  }
-
-  /* 
   if (fecha === null) {
     alert("Proceso cancelado");
     return;
   }
-
+ 
   fecha = fecha.trim();
 
   if (!fecha) {
-    alert("Valor vacio o nulo");
-  } else if (
-    !fecha.includes("/") ||
-    fecha.indexOf("/") > fecha.indexOf("/") + 2
-  ) {
-    alert(" Fecha invalida - La fecha se debe de escribir 'dd/mm/yyyy'");
+    alert("Valor invalido - vacio o nulo");
+  } else if (isNaN(fecha.substring(0, 2))) {
+    alert("Caracter invalido - Solo se aceptan numeros");
+  } else if (fecha.substring(2, 3) != "/") {
+    alert("Caracter invalido - Debe anexar '/'");
+  } else if (isNaN(fecha.substring(3, 5))) {
+    alert("Caracter invalido - Solo se aceptan numeros");
+  } else if (fecha.substring(5, 6) != "/") {
+    alert("Caracter invalido - Debe anexar '/'");
+  } else if (isNaN(fecha.substring(6, 10))) {
+    alert("Caracter invalido - Solo se aceptan numeros");
   } else {
-    let compararFecha = 2024;
-    if (fecha.substring() >)  {
+    let dia = Number(fecha.substring(0, 2));
+
+    let mes = Number(fecha.substring(3, 5));
+
+    let año = Number(fecha.substring(6, 10));
+
+    if (dia > 31 || dia < 1) {
+      alert("Numero de dia invalido");
+    } else if (mes > 12 || mes < 1) {
+      alert("Numero de mes invalido");
+    } else if (año > 2024 || año < 1) {
+      alert("Numero de año invalido");
+    } else {
+      const añoActual = 2024;
+      const mesActual = 7;
+      const diaActual = 10;
+
+      let edad = añoActual - año;
+
+      if (0 == mesActual - mes) {
+        if (0 == diaActual - dia) {
+          alert("La edad que posee es: " + edad + " años");
+        } else {
+          alert(
+            "La edad que posee es: " + (edad - 1) + " años"
+          );
+        }
+      } else {
+        alert(
+          "La edad que posee es: " + (edad - 1) + " años"
+        );
+      }
     }
-  }*/
+  }
 }
+
 fechaNacimiento();

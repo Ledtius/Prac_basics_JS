@@ -1,3 +1,6 @@
+/* Ejercicio 1: Validación de correo electrónico
+Crea una función que solicite al usuario ingresar su correo electrónico y verifique que cumpla con el formato básico de un correo (que contenga un "@" y un "."). Si no es válido, muestra un mensaje de error. */
+
 function email() {
   let email = prompt("Escriba su email");
   if (email === null) {
