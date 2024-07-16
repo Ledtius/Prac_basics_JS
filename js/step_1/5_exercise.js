@@ -16,15 +16,38 @@ function allNumbers() {
   }
 
   numbers.trim();
+  alert(numbers.split(" "));
 
-  numbers.includes(numbers.match(positiveNumberRegex));
+  if (isNaN(numbers)) {
+    alert("Invalid value - numbers only");
+  } else {
+    alert("Say hello");
 
-  if (numbers) {
-    alert(numbers.match(positiveNumberRegex));
+
+    let spaceNumbers = numbers.split("");
+    
+    alert("Space " + spaceNumbers.length);
+
+    alert(spaceNumbers);
+
+    if (spaceNumbers.length > 5 || spaceNumbers.length < 5) {
+      alert("Is necesary five numbers");
+    } else {
+      alert("Hello");
+    }
   }
-  if (numbers.includes(numbers.match(positiveNumberRegex))) {
+
+  /*   alert(numbers.includes(numbers.match(positiveNumberRegex))); */
+
+  /*  if (numbers) {
     alert(numbers.match(positiveNumberRegex));
-  }
+  } else if (numbers.includes(numbers.match(positiveNumberRegex))) {
+    alert(numbers.match(positiveNumberRegex));
+  } else if (numbers.includes(numbers.match(negativeNumberRegex))) {
+    alert(numbers.match(negativeNumberRegex));
+  } else if (numbers.includes(numbers.match(zeroRegex))) {
+    alert(numbers.match(zeroRegex));
+  } */
 }
 
 allNumbers();
