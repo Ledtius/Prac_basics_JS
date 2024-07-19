@@ -1,53 +1,60 @@
-/* Ejercicio 5: Clasificación de números
-Crea una función que solicite al usuario ingresar cinco números y los clasifique en tres categorías: positivos, negativos y ceros. Muestra la cantidad de números que pertenecen a cada categoría. */
+function classifyNumbers() {
+  // Solicitar al usuario ingresar cinco números separados por comas
+  let input = prompt("Ingrese cinco números separados por comas:");
 
-function allNumbers() {
-  const positiveNumberRegex = /^[1-9]\d*$/;
-
-  const negativeNumberRegex = /^-\d+$/;
-
-  const zeroRegex = /^0+$/;
-
-  let numbers = prompt("Writing five numbers");
-
-  if (numbers === null) {
-    alert("Operation canceled");
+  if (input === null) {
+    alert("Operación cancelada");
     return;
   }
 
-  numbers.trim();
-  alert(numbers.split(" "));
+  // Dividir la cadena de entrada en un array de cadenas
+  let numbers = input.split(',');
 
-  if (isNaN(numbers)) {
-    alert("Invalid value - numbers only");
-  } else {
-    alert("Say hello");
+  if (numbers.length !== 5) {
+    alert("Por favor, ingrese exactamente cinco números.");
+    return;
+  }
 
+  // Convertir las cadenas a números
+  let num1 = parseFloat(numbers[0].trim());
+  let num2 = parseFloat(numbers[1].trim());
+  let num3 = parseFloat(numbers[2].trim());
+  let num4 = parseFloat(numbers[3].trim());
+  let num5 = parseFloat(numbers[4].trim());
 
-    let spaceNumbers = numbers.split("");
-    
-    alert("Space " + spaceNumbers.length);
+  // Inicializar contadores para cada categoría
+  let positivos = 0;
+  let negativos = 0;
+  let ceros = 0;
 
-    alert(spaceNumbers);
+  // Función para clasificar un número
+  function clasificarNumero(num) {
+    if (isNaN(num)) {
+      alert("Por favor, ingrese solo números.");
+      return;
+    }
 
-    if (spaceNumbers.length > 5 || spaceNumbers.length < 5) {
-      alert("Is necesary five numbers");
+    if (num > 0) {
+      positivos++;
+    } else if (num < 0) {
+      negativos++;
     } else {
-      alert("Hello");
+      ceros++;
     }
   }
 
-  /*   alert(numbers.includes(numbers.match(positiveNumberRegex))); */
+  // Clasificar los números
+  clasificarNumero(num1);
+  clasificarNumero(num2);
+  clasificarNumero(num3);
+  clasificarNumero(num4);
+  clasificarNumero(num5);
 
-  /*  if (numbers) {
-    alert(numbers.match(positiveNumberRegex));
-  } else if (numbers.includes(numbers.match(positiveNumberRegex))) {
-    alert(numbers.match(positiveNumberRegex));
-  } else if (numbers.includes(numbers.match(negativeNumberRegex))) {
-    alert(numbers.match(negativeNumberRegex));
-  } else if (numbers.includes(numbers.match(zeroRegex))) {
-    alert(numbers.match(zeroRegex));
-  } */
+  // Mostrar los resultados
+  alert("Cantidad de números positivos: " + positivos);
+  alert("Cantidad de números negativos: " + negativos);
+  alert("Cantidad de ceros: " + ceros);
 }
 
-allNumbers();
+// Llamar a la función
+classifyNumbers();
