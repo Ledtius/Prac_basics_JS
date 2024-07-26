@@ -8,34 +8,69 @@ function minium() {
   let index = 0;
 
   //Pedir el numero
-  let num = prompt("Writing the number in the system");
+  let num = prompt("Writing the number in the system (Not spaces)");
 
   //Si se da cancelar
   if (num === null) {
     alert("Cancelled operation");
+    return;
   }
 
-  let array = num.split("");
-  let last = array;
+  if (!num) {
+    alert("Null or empty value");
+    return;
+  } else if (isNaN(num)) {
+    alert("Invalid value - Only numbers");
+    return;
+  }
 
-  console.log(`index: ${index}\nvalue: ${array}`);
-  index++;
+  if (num != null) {
+    let array = num.split(" ");
+    let last = array;
 
-  while (key) {
-    if (num == numSys) {
-      key = false;
-    } else {
-      num = prompt("Writing the number in the system - AGAIN");
-      last = array;
-      if(num < 0 || num > 9){
+    console.log(`index: ${index}\nvalue: ${array}`);
+    index++;
 
+    while (key) {
+      if (num == numSys) {
+        key = false;
+      } else {
+        num = prompt("Writing the number in the system - AGAIN (Not spaces)");
 
+        //Si se da cancelar
+        if (num === null) {
+          alert("Cancelled operation");
+          return;
+        }
+
+        if (!num) {
+          alert("Null or empty value");
+          return;
+        } else if (isNaN(num)) {
+          alert("Invalid value - Only numbers");
+          return;
+        } else {
+          last = array;
+
+          if (num != null) {
+            array[index] = num.split(" ");
+
+            console.log(`index: ${index}\nvalue: ${array}`);
+
+            let arrayOrden = array.sort(function (a, b) {
+              return a - b;
+            });
+
+            console.log(`Ordenado: ${arrayOrden}`);
+
+            if (num == 5) {
+              alert(`Numero menor ingresado: ${arrayOrden[0]}`);
+            }
+          }
+
+          index++;
+        }
       }
-      array[index] = num.split(" ");
-
-      console.log(`index: ${index}\nvalue: ${array}`);
-
-      index++;
     }
   }
 }
