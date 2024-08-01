@@ -1,114 +1,93 @@
 /* Ejercicio 6: Encontrar el Mínimo
 Escribe una función que pida al usuario ingresar números hasta que se ingrese un número específico (por ejemplo, -1 para terminar). La función debe encontrar y mostrar el número más pequeño ingresado. */
 
-function minium() {
-  //Inicializo contador
-  let numSys = 5;
-  let key = true;
-  let index = 0;
+function minimun() {
+  function validation() {
+    //Want the data
+    let num = prompt("Writing a number please");
 
-  //Pedir el numero
-  let num = prompt("Writing the number in the system (Not spaces)");
+    if (num == null) {
+      alert("Cancelled operation");
+      return;
+    }
 
-  //Si se da cancelar
-  if (num === null) {
-    alert("Cancelled operation");
-    return;
+    num = num.trim();
+
+    //Validations
+    if (!num) {
+      alert("Empty or null value");
+      return;
+    } else if (isNaN(num)) {
+      alert("Invalid value - numbers only");
+      return;
+    }
+
+    return num;
   }
 
-  if (!num) {
-    alert("Null or empty value");
-    return;
-  } else if (isNaN(num)) {
-    alert("Invalid value - Only numbers");
-    return;
-  }
+  //Funcion of loop
 
-  if (num != null) {
-    let array = num.split(" ");
-    let last = array;
+  function loop(value) {
+    const numSys = 55;
+    let index = 0;
 
-    console.log(`index: ${index}\nvalue: ${array}`);
-    index++;
+    if (value == numSys) {
+      alert(`Your guess is correct!\n The number of the system is: ${numSys}`);
 
-    while (key) {
-      if (num == numSys) {
-        key = false;
-      } else {
-        num = prompt("Writing the number in the system - AGAIN (Not spaces)");
+      alert(`The minimum value that you digitated: ${value}`);
+      return;
+    } else if (value == undefined) {
+      return;
+    }
+    let array = value.split(" ");
 
-        //Si se da cancelar
-        if (num === null) {
-          alert("Cancelled operation");
+    array[index] = value.split(" ");
+
+    let arrayOrder = array.sort(function (a, b) {
+      return a - b;
+    });
+
+    console.log(`1) Group of numbers: ${array}\nIndex array: ${index}`);
+
+    if (value != numSys) {
+      let key = true;
+
+      while (key) {
+        value = validation();
+        index++;
+
+        if (value == numSys) {
+          key = false;
+
+          array[index] = value.split(" ");
+
+          console.log(`1) Group of numbers: ${array}\nIndex array: ${index}`);
+
+          alert(
+            `Your guess is correct!\nThe number of the system is:  ${numSys}`
+          );
+
+          alert(`The minimum value that you digitated: ${array[0]}`);
+          return;
+        } else if (value == undefined) {
+          index--;
+          console.log(`1) Group of numbers: ${array}\nIndex array: ${index}`);
+
           return;
         }
 
-        if (!num) {
-          alert("Null or empty value");
-          return;
-        } else if (isNaN(num)) {
-          alert("Invalid value - Only numbers");
-          return;
-        } else {
-          last = array;
+        array[index] = value.split(" ");
+        arrayOrder = array.sort(function (a, b) {
+          return a - b;
+        });
 
-          if (num != null) {
-            array[index] = num.split(" ");
+        console.log(`Order of the array: ${arrayOrder}`);
 
-            console.log(`index: ${index}\nvalue: ${array}`);
-
-            let arrayOrden = array.sort(function (a, b) {
-              return a - b;
-            });
-
-            console.log(`Ordenado: ${arrayOrden}`);
-
-            if (num == 5) {
-              alert(`Numero menor ingresado: ${arrayOrden[0]}`);
-            }
-          }
-
-          index++;
-        }
+        console.log(`Group of numbers: ${array}\nIndex array: ${index}`);
       }
     }
   }
+  loop(validation());
 }
 
-minium();
-
-/* function minium() {
-  //Inicializo contador
-  let numSys = 5;
-  let key = true;
-
-
-  //Pedir el numero
-  let num = prompt("Writing the number in the system");
-
-  //Si se da cancelar
-  if (num === null) {
-    alert("Cancelled operation");
-  }
-
-  while (key) {
-    if (num == numSys) {
-      key = false;
-    } else {
-      let lastArray = num.split("");
-
-      num = prompt("Writing the number in the system - AGAIN");
-
-      let array = num.split("");
-
-      console.log("First: " + array);
-
-      let combi = lastArray.concat(array);
-
-      console.log("Last: " + lastArray);
-
-      console.log("Combi: " + combi);
-    }
-  }
-}
- */
+minimun();

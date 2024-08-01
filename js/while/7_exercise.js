@@ -26,7 +26,7 @@ function sequenceLucas() {
     while (cont < userNumber) {
       console.log(num2);
 
-      let nextNumber = num1 + num2;
+      let nextNumber = 41 + num2;
 
       num1 = num2;
       num2 = nextNumber;

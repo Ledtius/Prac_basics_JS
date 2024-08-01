@@ -20,7 +20,7 @@ function classifyNumbers() {
   let num2 = parseFloat(numbers[1].trim());
   let num3 = parseFloat(numbers[2].trim());
   let num4 = parseFloat(numbers[3].trim());
-  let num5 = parseFloat(numbers[4].trim());
+  let num5 = parseFloat(numbers[4].trim()); 
 
   // Inicializar contadores para cada categoría
   let positivos = 0;
