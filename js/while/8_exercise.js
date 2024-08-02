@@ -11,6 +11,7 @@ function vowels() {
     }
 
     phrase = phrase.trim();
+    phrase = phrase.toLowerCase();
 
     if (!phrase) {
       alert("Empty or null value");
@@ -24,47 +25,33 @@ function vowels() {
 
   let count = (countA = countE = countI = countO = countU = 0);
 
-  let regExpA = /[a]/gi;
-
   let userPhrase = validation();
+
+  if (userPhrase === undefined) {
+    return;
+  }
+  
   let lengthPhrase = userPhrase.length;
 
-  console.log(lengthPhrase);
-
-  console.log(userPhrase);
-
-  /*   console.log(count);
-
-  console.log(userPhrase[count]); */
-
   while (count != lengthPhrase) {
-    if (userPhrase[count] === "A" || userPhrase[count] === "a") {
-      console.log(`Position: ${count}\nValue: ${userPhrase[count]}`);
+    if (userPhrase[count] === "a") {
       countA++;
-    } else if (userPhrase[count] === "E" || userPhrase[count] === "e") {
-      console.log(`Position: ${count}\nValue: ${userPhrase[count]}`);
+    } else if (userPhrase[count] === "e") {
       countE++;
-    } else if (userPhrase[count] === "I" || userPhrase[count] === "i") {
-      console.log(`Position: ${count}\nValue: ${userPhrase[count]}`);
+    } else if (userPhrase[count] === "i") {
       countI++;
-    }else if (userPhrase[count] === "O" || userPhrase[count] === "o") {
-      console.log(`Position: ${count}\nValue: ${userPhrase[count]}`);
+    } else if (userPhrase[count] === "o") {
       countO++;
-    }else if (userPhrase[count] === "U" || userPhrase[count] === "u") {
-      console.log(`Position: ${count}\nValue: ${userPhrase[count]}`);
+    } else if (userPhrase[count] === "u") {
       countU++;
     }
 
     count++;
   }
-  console.log("Number of A: " + countA);
-  console.log("Number of E: " + countE);
-  console.log("Number of I: " + countI);
-  console.log("Number of O: " + countO);
-  console.log("Number of U: " + countU);
 
-
-
+  alert(
+    `Number of 'a' : ${countA}\nNumber of 'e' : ${countE}\nNumber of 'i' : ${countI}\nNumber of 'o' : ${countO}\nNumber of 'u' : ${countU}\n`
+  );
 }
 
 vowels();
