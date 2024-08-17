@@ -33,28 +33,21 @@ function primeNumbers() {
 
   let userNumber = verification();
 
-  /*   if(userNumber === 1){
-    console.log(`${userNumber} is a prime number`);
-    return;
-  } */
-
-  let count = 0;
+  let count = 1;
   let countRemainderZero = 0;
 
   while (count <= userNumber) {
     let value = userNumber % count;
 
-    console.log(`Remainder: ${value}`);
     if (value === 0) {
       countRemainderZero++;
-      console.log(`Count of the remainders in zero: ${countRemainderZero}`);
     }
 
     count++;
   }
 
   if (countRemainderZero <= 2) {
-    console.log(`${userNumber} is a prime number`);
+    alert(`${userNumber} is a prime number`);
   }
 }
 
