@@ -97,7 +97,7 @@ let guessNumber = function () {
       } else if (number > guessN) {
         alert("Lower!");
       }
-    } else {
+    } else {}
       return;
     }
   } while (number !== guessN);
