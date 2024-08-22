@@ -20,14 +20,15 @@ let validation = function () {
 
 let countVowels = function () {
   let word = "";
-  let count = 0;
+
   let regex = /[aeiouAEIOU]/g;
 
   do {
     word = validation();
 
     if (word !== undefined) {
-      alert(`The numbers of vowels is: ${word.match(regex).length}`);
+      if (regex.test(word) === false) alert("Dont have any volwes");
+      else alert(`The numbers of vowels is: ${word.match(regex).length}`);
     }
   } while (word !== undefined);
 };
