@@ -1,3 +1,7 @@
+/* ### Ejercicio 4: Menú interactivo
+
+Crea un programa que muestre un menú con varias opciones al usuario (por ejemplo, "1. Opción 1", "2. Opción 2", "3. Salir"). El programa debe seguir mostrando el menú y solicitando una opción hasta que el usuario elija la opción de salir. */
+
 let validation = function () {
   let value = prompt(
     "Menu\n-Press '1' to print Today's date\n-Press '2' to resolve a sum\n-Press '3' to exit"
