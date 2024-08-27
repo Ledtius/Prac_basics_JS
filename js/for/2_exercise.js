@@ -32,10 +32,10 @@ let validation2 = function () {
   valueFind = valueFind.trim();
 
   if (!valueFind) {
-    alert("Null or empty  valueFind");  
+    alert("Null or empty  valueFind");
     return;
   }
-
+  console.log(typeof valueFind);
   return valueFind;
 };
 
