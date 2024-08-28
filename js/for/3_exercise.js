@@ -5,7 +5,7 @@
 
 let validation = function () {
   let value = prompt(
-    "Sum of digits of a one number\n\nWriting a positive integer"
+    "Sum of digits of a one number\n\nWriting a positive integer:"
   );
 
   if (value === null) {
@@ -35,22 +35,20 @@ let validation = function () {
 };
 
 let strangeSum = function () {
-  //Pares y impares?
   let listNum = validation();
   let ope = 0;
   let x = 0;
   let y = 0;
-  let large = listNum.length;
 
   if (listNum === undefined) return;
 
-  console.log(large);
-  for (let i = 0; i < large; i++) {
+  let array = listNum.split("");
+
+  for (let i = 0; i <= listNum.length; i++) {
     x = Number(listNum[i]);
     y = Number(listNum[(i += 1)]);
 
     console.log(`x: ${x}\ny: ${y}`);
-
 
     // This condicion help me to even numbers when you dont write
     if (!y) {
@@ -60,6 +58,7 @@ let strangeSum = function () {
     ope += x + y;
     console.log(`ope: ${ope}\ni: ${i}`);
   }
+  alert(`The sum of:\n${array.join(" + ")} = ${ope}`);
 };
 
 strangeSum();
