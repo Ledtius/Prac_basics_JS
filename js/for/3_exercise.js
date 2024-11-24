@@ -44,7 +44,7 @@ let strangeSum = function () {
 
   let array = listNum.split("");
 
-  for (let i = 0; i <= listNum.length; i++) {
+  for (let i = 0; i < listNum.length; i++) {
     x = Number(listNum[i]);
     y = Number(listNum[(i += 1)]);
 
@@ -58,42 +58,14 @@ let strangeSum = function () {
     ope += x + y;
     console.log(`ope: ${ope}\ni: ${i}`);
   }
-  alert(`The sum of:\n${array.join(" + ")} = ${ope}`);
+  alert(`The sum of:\n${array.join(" + ")} is = ${ope}`);
+
 };
 
 strangeSum();
 
-/* 
-  for (let i = 0; i <= valueSum.length; i++) {
-    operation += Number(valueSum[i]);
-    console.log(`Operation 1: ${operation}`);
-    operation = Number(valueSum[i]) + Number(valueSum[(i = +1)]);
-
-    console.log(`Operation 2: ${operation}`);
+/*   // Convertimos cada carácter del string a número y lo sumamos
+  for (let i = 0; i < listNum.length; i++) {
+    sum += Number(listNum[i]);
   }
-
  */
-
-/* 
-
-  for (let i = 0; i <= valueSum.length; i += 1) {
-    let ope1 = Number(valueSum[count]);
-    let ope2 = Number(valueSum[(count += 1)]);
-
-    console.log(`x: ${x}\ncount:${count}\ni: ${i}`);
-
-    console.log(
-      `${x} =+ ${Number(valueSum[i])}: ${(x += Number(valueSum[i]))} `
-    );
-
-    console.log(`x = ${x}\nope1 = ${ope1}\nope2 = ${ope2} `);
-
-    x = ope1 + ope2;
-
-    console.log(`x: ${ope1} + ${ope2}`);
-    console.log("-------------------");
-
-    if (!x) i = 10;
-
-  }
-*/
