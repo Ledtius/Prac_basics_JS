@@ -1,16 +1,16 @@
-const pets = ["dog", "cat", "dog", "bird", "cat", "dog"];
-/*
-result →
-{
-  dog: 3,
-  cat: 2,
-  bird: 1
-}
-*/
+const products = [
+  { name: "Laptop", price: 1200 },
+  { name: "Mouse", price: 50 },
+  { name: "Keyboard", price: 100 },
+];
+// result → 1350
 
 console.log(
-  pets.reduce((acc, current, index) => {
-    acc[current] = (acc[current] ?? 0) + 1;
+  products.reduce((acc, current) => {
+    const { price } = current;
+
+    acc += price;
+
     return acc;
-  }, {})
+  }, 0)
 );
