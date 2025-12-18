@@ -1,9 +1,16 @@
-const numbers = [1, 2, 3, 4, 5];
+const pets = ["dog", "cat", "dog", "bird", "cat", "dog"];
+/*
+result →
+{
+  dog: 3,
+  cat: 2,
+  bird: 1
+}
+*/
 
 console.log(
-  numbers.reduce((acc, current, index) => {
-    acc += current;
-
+  pets.reduce((acc, current, index) => {
+    acc[current] = (acc[current] ?? 0) + 1;
     return acc;
-  }, 0)
+  }, {})
 );
